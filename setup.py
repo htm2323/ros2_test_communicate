@@ -1,21 +1,26 @@
 from setuptools import setup
 
-package_name = 'ros2_test_communicate'
+package_name = 'simple_communicate'
 
 setup(
     name=package_name,
     version='0.0.0',
     packages=[],
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+    ],
     py_modules=[
-        'ros2_test_communicate.test_talker',
-        'ros2_test_communicate.test_listener',
+        'simple_communicate.simple_talker',
+        'simple_communicate.simple_listener',
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     author='htm2323',
-    author_email="is0578ri@ed.ritsumei.ac.jp",
+    author_email="",
     maintainer='htm2323',
-    maintainer_email="is0578ri@ed.ritsumei.ac.jp",
+    maintainer_email="",
     keywords=['ROS', 'ROS2'],
     classifiers=[
         'Intended Audience :: Developers',
@@ -28,8 +33,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'test_talker= ros2_test_communicate.test_talker:main',
-            'test_listener= ros2_test_communicate.test_listener:main',
+            'talker= simple_communicate.simple_talker:main',
+            'listener= simple_communicate.simple_listener:main',
         ],
     },
 )
